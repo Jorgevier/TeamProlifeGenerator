@@ -19,14 +19,24 @@ function appMenu() {
     console.log("Please build your team");
     inquirer.prompt([
       {
-        type: "list",
-        name: "memberChoice",
-        message: "Which type of team member would you like to add?",
-        choices: [
-          "Engineer",
-          "Intern",
-          "I don't want to add any more team members"
-        ]
+        type: "input",
+        name: "managerName",
+        message: "Whats the Managers name?"
+      },
+      {
+        type: "input",
+        name: "managerId",
+        message: "Whats the Manager's Id?"
+      },
+      {
+        type: "input",
+        name: "managerEmail",
+        message: "Whats the Manager's email?"
+      },
+      {
+        type: "input",
+        name: "managerOfficeNumber",
+        message: "Whats the Manager's office number?"
       }
       //
       // YOUR CODE HERE:
@@ -70,23 +80,33 @@ function appMenu() {
   function addEngineer() {
     inquirer.prompt([
       {
-        type: "list",
-        name: "memberChoice",
-        message: "Which type of team member would you like to add?",
-        choices: [
-          "Engineer",
-          "Intern",
-          "I don't want to add any more team members"
-        ]
+        type: "input",
+        name: "engineerName",
+        message: "Whats the Engineer's name?"
+      },
+      {
+        type: "input",
+        name: "engineerId",
+        message: "Whats the Engineer's Id?"
+      },
+      {
+        type: "input",
+        name: "engineerEmail",
+        message: "Whats the Engineer's email?"
+      },
+      {
+        type: "input",
+        name: "engineerGithub",
+        message: "Whats the Engineer's Github?"
       }
       //
       // YOUR CODE HERE
       // CREATE OBJECTS OF QUESTIONS FOR ENGINEER
       //
     ]).then(answers => {
-      const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
-      teamMembers.push(manager);
-      idArray.push(answers.managerId);
+      const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+      teamMembers.push(engineer);
+      idArray.push(answers.engineerId);
       createTeam();
     });
   }
@@ -104,23 +124,33 @@ function appMenu() {
   function addIntern() {
     inquirer.prompt([
       {
-        type: "list",
-        name: "memberChoice",
-        message: "Which type of team member would you like to add?",
-        choices: [
-          "Engineer",
-          "Intern",
-          "I don't want to add any more team members"
-        ]
+        type: "input",
+        name: "internName",
+        message: "Whats the Intern's name?"
+      },
+      {
+        type: "input",
+        name: "internId",
+        message: "Whats the Intern's Id?"
+      },
+      {
+        type: "input",
+        name: "internEmail",
+        message: "Whats the Intern's email?"
+      },
+      {
+        type: "input",
+        name: "internSchool",
+        message: "Whats the Intern's school?"
       }
       //
       // YOUR CODE HERE
       // CREATE OBJECTS OF QUESTIONS FOR ENGINEER
       //
     ]).then(answers => {
-      const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
-      teamMembers.push(manager);
-      idArray.push(answers.managerId);
+      const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+      teamMembers.push(intern);
+      idArray.push(answers.internId);
       createTeam();
     });
   }
